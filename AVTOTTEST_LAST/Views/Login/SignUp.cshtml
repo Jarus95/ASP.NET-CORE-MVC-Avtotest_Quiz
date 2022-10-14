@@ -1,0 +1,36 @@
+﻿@model User?
+<div class="text-center">
+
+ <h1>Ro'yhatdan o'tish</h1>
+</div>
+
+<br />
+
+<form asp-action="SignUp" method="post">
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Ism</label>
+        <input value="@Model?.Name" name="Name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <span asp-validation-for="Name" class="text-danger"></span>
+        
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Telefon raqam</label>
+        <input value="@Model?.Phone" name="Phone" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <span asp-validation-for="Phone" class="text-danger"></span>
+        @if(ViewBag.isUser != null){
+            if (ViewBag.isUser)
+            {
+                <label for="exampleInputEmail1" class="form-label text-danger">Bunday raqam mavjud</label>
+            }
+        }
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Parol</label>
+        <input value="@Model?.Password" name="Password" type="password" class="form-control" id="exampleInputPassword1">
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
